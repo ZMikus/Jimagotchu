@@ -1,9 +1,9 @@
 //-----------------CLASSES
 class Tamagotchi{
 	constructor() {
-		this.boredom = 1;
-		this.hunger = 1;
-		this.sleepiness = 1;
+		this.boredom = 0;
+		this.hunger = 0;
+		this.sleepiness = 0;
 		this.age = 0;
 		this.alive = null;
 	}
@@ -22,14 +22,13 @@ const game = {
 			setInterval(function() {
 				game.gameOn = true
 				game.increaseBoredom()
-					
 				$('#boredom').text('Boredom: ' + game.currentPet.boredom)
-
 				game.increaseHunger()
+				$('#hunger').text('Hunger: ' + game.currentPet.hunger)
 				game.increaseSleepiness()
+				$('#sleepiness').text('Sleepiness: ' + game.currentPet.sleepiness)
 				game.increaseAge()
-
-				console.log(game.currentPet, ' This is the pet boredom log');
+				$('#age').text('Age: ' + game.currentPet.age)
 				game.timer++
 			}, 1000)
 		}
