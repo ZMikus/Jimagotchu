@@ -96,7 +96,7 @@
 
 
 
-// //---------------LISTENERS
+//---------------LISTENERS
 
 // //feed button
 
@@ -189,15 +189,95 @@
 
 //--------------------GAME
 
+// const game = {
+// 	name = [] //input NAME from start prompt
+// 		//prompt function to input name and start timers
+// 	const clock = '00:00'
+// 		if(clock % 5 === 0) 
+// 			return b = (b + 7);
+
+// 		if(clock % 7 === 0)
+// 			return h = (h + 5);
+
+// 		if(clock % 8 === 0)
+// 			return s = (s + 8);
+
+// 		if(clock % 30 === 0)
+// 			return a = (a + 1);
+// 	}
+// 	let timer = setInterval(updateClock, 1000)
+// 	const updateClock() {
+// 		//BEGIN button on name prompt starts timer
+// 	}
+// 	let bordem = b
+// 		bordemIncrease(){
+// 		//timer function that increases b by 7 every 5 seconds
+// 			//timer starts on click of BEGIN BUTTON in prompt
+// 		//play button, on click decreases b by 3
+// 		// $('.playButton').on('click', () => {
+// 		// 	return b = (b - 3)
+// 		})
+		
+// 		// if b >= 10 TAMAGOTCHI DIES/GAME OVER()	
+
+// 		}
+
+// 	let hunger = h
+// 		hungerIncrease(){
+// 		//timer function that increases h by 5 every 10 seconds
+// 			//timer starts on click of BEGIN BUTTON in prompt
+// 		//feed button, on click decreases h by 3
+// 		$('.feedButton').on('click', () => {
+// 			return h = (h - 3)
+// 		})
+// 		// if h >= 10 TAMAGOTCHI DIES/GAME OVER()		
+// 	}
+
+// 	let sleepiness = s
+// 		sleepinessIncrease(){
+// 		//time function that increases sleepiness by 8 every 20 seconds
+// 			//timer starts on click of BEGIN BUTTON in prompt
+// 		//sleep button on click decreases s by 4
+// 		$('.sleepButton').on('click', () => {
+// 			return s = (s - 4)
+// 		})
+// 		// if s >= 10 TAMAGOTCHI DIES/GAME OVER()	
+// 	}
+
+// 	let age = a
+// 		ageIncrease(){
+// 		//time function that increases age by 1 every 30 seconds
+// 			//timer starts on click of BEGIN BUTTON in prompt
+// 		// if a > 10 TAMAGOTCHI DIES/GAME OVER
+// 	}
+// 	//display GAME OVER function when b, h, s, >= 10 || a = 11
+// }
+
 //---------------LISTENERS
 
 
 //
 $('#begin-btn').on('click', () => {
-	console.log('click works');
-
+	
 	const tamaName = $('#input-box').val();
-
-	console.log(tamaName);
+	$('h2').append(`${tamaName}`); 
+	game.startTimer()
 });
+
+
+$('#play-btn').on('click', () => {
+	console.log("play button works");
+	//return b = (b - 3)
+})
+
+$('#feed-btn').on('click', () => {
+	console.log("feed button works");
+	//return h = (h - 3)
+})
+
+$('#sleep-btn').on('click', () => {
+	console.log("sleep button works");
+	//return s = (s - 5)
+})
+
 
