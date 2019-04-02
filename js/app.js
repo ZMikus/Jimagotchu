@@ -186,26 +186,70 @@
 //********************REBUILD********************************
 
 //-----------------CLASSES
+class Tamagotchi{
+	constructor() {
+		this.boredom = 1;
+		this.hunger = 1;
+		this.sleepiness = 1;
+		this.age = 0;
+		this.alive = null;
+	}
+};
 
 //--------------------GAME
 
-// const game = {
-// 	name = [] //input NAME from start prompt
-// 		//prompt function to input name and start timers
-// 	const clock = '00:00'
-// 		if(clock % 5 === 0) 
-// 			return b = (b + 7);
+const game = {
+	timer: 0,
+	currentPet: null,
+	gameOn: false,
+	startTimer() {
+		const pet1 = new Tamagotchi()
+		this.currentPet = pet1 
+		setInterval(function() {
+			game.increaseBoredom()
+			game.increaseHunger()
+			game.increaseSleepiness()
+			game.increaseAge()
 
-// 		if(clock % 7 === 0)
-// 			return h = (h + 5);
+			console.log(game.currentPet, ' This is the pet boredom log');
+			game.timer++
+		}, 1000)
+	},
+	// name = $('#input-box').val() //input NAME from start prompt
+	increaseBoredom() {
+		if(this.timer % 5 === 0){
+			this.currentPet.boredom +=7;
+		}
+	},
+	decreaseBoredom(){
+		this.currentPet.boredom -=3;
+	},
 
-// 		if(clock % 8 === 0)
-// 			return s = (s + 8);
+	increaseHunger(){
+		if(this.timer % 7 === 0){
+			this.currentPet.hunger += 5;
+		}
+	},
+	decreaseHunger(){
+		this.currentPet.hunger -=3;
+	},
+	increaseSleepiness(){
+		if(this.timer % 8 === 0){
+			this.currentPet.sleepiness += 8;
+		}
+	},
+	decreaseSleepiness(){
+		this.currentPet.sleepiness -=4;
+		},
+	increaseAge(){
+		if(this.timer % 30 === 0){
+			this.currentPet.age += 1;
+		}
+	}
 
-// 		if(clock % 30 === 0)
-// 			return a = (a + 1);
-// 	}
-// 	let timer = setInterval(updateClock, 1000)
+}
+//-----------------------------
+// 	let timer = setInterval(updatetimer, 1000)
 // 	const updateClock() {
 // 		//BEGIN button on name prompt starts timer
 // 	}
@@ -258,26 +302,25 @@
 
 //
 $('#begin-btn').on('click', () => {
-	
 	const tamaName = $('#input-box').val();
-	$('h2').append(`${tamaName}`); 
-	game.startTimer()
+	$('h2').text(`${tamaName} IS ALIVE! GAME ON!!`); 
+	game.startTimer(), game.gameOn = false
 });
 
 
 $('#play-btn').on('click', () => {
-	console.log("play button works");
-	//return b = (b - 3)
+	//console.log("play button works");
+	game.currentPet.decreaseBoredom
 })
 
 $('#feed-btn').on('click', () => {
 	console.log("feed button works");
-	//return h = (h - 3)
+	game.currentPet.decreaseHunger
 })
 
 $('#sleep-btn').on('click', () => {
 	console.log("sleep button works");
-	//return s = (s - 5)
+	game.currentPet.decreaseSleepiness
 })
 
 
