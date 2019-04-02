@@ -103,3 +103,80 @@ timer = () => {
 //play button
 
 //name
+
+//---------------USER STORY
+//Page load : NAME PET PROMPT w/ BEGIN BUTTON
+	//User Prompted to Name Tamagachi
+		//display the desired Name with vitals & timer
+
+	//BEGIN button starts timer
+
+
+//TIMER
+
+const game = {
+	let timer setInterval()
+		//BEGIN button on name prompt starts timer
+	name = [] //input NAME from start prompt
+		//prompt function to input name and start timers
+
+	let bordem = b
+		bordemIncrease(){
+		//timer function that increases b by 7 every 5 seconds
+			//timer starts on click of BEGIN BUTTON in prompt
+		//play button, on click decreases b by 3
+		$('.playButton').on('click', () => {
+			return b = (b - 3)
+		})
+		
+		// if b >= 10 TAMAGOTCHI DIES/GAME OVER()	
+
+		}
+
+	let hunger = h
+		hungerIncrease(){
+		//timer function that increases h by 5 every 10 seconds
+			//timer starts on click of BEGIN BUTTON in prompt
+		//feed button, on click decreases h by 3
+		$('.feedButton').on('click', () => {
+			return h = (h - 3)
+		})
+		// if h >= 10 TAMAGOTCHI DIES/GAME OVER()		
+	}
+
+	let sleepiness = s
+		sleepinessIncrease(){
+		//time function that increases sleepiness by 8 every 20 seconds
+			//timer starts on click of BEGIN BUTTON in prompt
+		//sleep button on click decreases s by 4
+		$('.sleepButton').on('click', () => {
+			return s = (s - 4)
+		})
+		// if s >= 10 TAMAGOTCHI DIES/GAME OVER()	
+	}
+
+	let age = a
+		ageIncrease(){
+		//time function that increases age by 1 every 30 seconds
+			//timer starts on click of BEGIN BUTTON in prompt
+		// if a > 10 TAMAGOTCHI DIES/GAME OVER
+	}
+	//display GAME OVER function when b, h, s, >= 10 || a = 11
+}
+
+//INCREASE VALUES:
+
+	//every 05 seconds: boredom value ---> increases by 7
+	//every 10 seconds: hunger ---> increases by 5
+	//every 20 seconds: sleepiness ---> increases by 8
+	//every 30 seconds: age++ 
+		//at age 11, Tamagochi dies - - - user restarts from beginning
+
+//If any variable of the Tamagatchi  > 10 OR Age = 11 ---> Tamagotchi dies/GAME OVER
+	
+
+//BUTTONS :
+	//on click, PLAY button decreases play value by 3
+	//on click, FEED button decreases hunger value by 3
+	//on click, SLEEP button decreases sleepiness by 4
+
