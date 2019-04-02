@@ -222,7 +222,7 @@ const game = {
 		}
 	},
 	decreaseBoredom(){
-		this.currentPet.boredom -=3;
+		this.currentPet.boredom -=2;
 	},
 
 	increaseHunger(){
@@ -231,7 +231,7 @@ const game = {
 		}
 	},
 	decreaseHunger(){
-		this.currentPet.hunger -=3;
+		this.currentPet.hunger -=2;
 	},
 	increaseSleepiness(){
 		if(this.timer % 8 === 0){
@@ -239,7 +239,7 @@ const game = {
 		}
 	},
 	decreaseSleepiness(){
-		this.currentPet.sleepiness -=4;
+		this.currentPet.sleepiness -=3;
 		},
 	increaseAge(){
 		if(this.timer % 30 === 0){
@@ -303,24 +303,24 @@ const game = {
 //
 $('#begin-btn').on('click', () => {
 	const tamaName = $('#input-box').val();
-	$('h2').text(`${tamaName} IS ALIVE! GAME ON!!`); 
+	$('h2').text(`${tamaName} is ALIVE! Keep it that way!!`); 
 	game.startTimer(), game.gameOn = false
 });
 
 
 $('#play-btn').on('click', () => {
 	//console.log("play button works");
-	game.currentPet.decreaseBoredom
+	game.decreaseBoredom()
 })
 
 $('#feed-btn').on('click', () => {
 	console.log("feed button works");
-	game.currentPet.decreaseHunger
+	game.decreaseHunger()
 })
 
 $('#sleep-btn').on('click', () => {
 	console.log("sleep button works");
-	game.currentPet.decreaseSleepiness
+	game.decreaseSleepiness()
 })
 
 
