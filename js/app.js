@@ -37,6 +37,8 @@ const game = {
 
 				$('#timer').text('Days You Kept Up: ' + game.timer)
 
+				game.displayPics()
+
 				game.gameOver()
 
 				game.youWin()
@@ -54,7 +56,8 @@ const game = {
 	},
 	decreaseBoredom(){
 		if(this.currentPet.boredom >= 0){
-		this.currentPet.boredom -=2;}
+			this.currentPet.boredom -=2;
+		}
 	},
 
 	increaseHunger(){
@@ -63,8 +66,9 @@ const game = {
 		}
 	},
 	decreaseHunger(){
-		if(this.currentPet.hunger >= 0)
-		this.currentPet.hunger -=2;
+		if(this.currentPet.hunger >= 0) {
+			this.currentPet.hunger -=2;
+		}
 	},
 	increaseSleepiness(){
 		if((this.timer > 0) && (this.timer % 8 === 0) && (this.currentPet.sleepiness < 10)){
@@ -73,11 +77,12 @@ const game = {
 	},
 	decreaseSleepiness(){
 		if(this.currentPet.sleepiness >= 0)
-		this.currentPet.sleepiness -=3;
+			this.currentPet.sleepiness -=3;
 		},
 	increaseAge(){
 		if((this.timer > 0) && (this.timer % 7 === 0)){
-			this.currentPet.age += 1;
+			this.currentPet.age += 1
+			game.lights = false;
 		}
 	},
 	gameOver(){
@@ -87,6 +92,7 @@ const game = {
 			//this.currentPet.age > 11){
 			this.currentPet = null
 			$('h1').text("You Didn't Keep Up..You Fail..").css("color", "red");
+			$('#displayed-pic').attr('src',"https://i.imgur.com/viuje49.png")
 		}
 
 	},
@@ -95,20 +101,22 @@ const game = {
 		if(this.currentPet.age > 12) {
 			this.currentPet = null
 			$('h1').text("YOU PASSED!!").css("color", "green");
-
+			$('#displayed-pic').attr('src',"https://i.imgur.com/NJkRCvQ.png")
 		}
 	},
+	displayPics(){
+		if(this.currentPet.boredom >= 7){
+			$('#displayed-pic').attr('src',"https://i.imgur.com/DoVJpdX.png")	}
 
-	lightsOut(){
-		if(this.lights = true){
-			$('#sleep-btn').on('click', () => {
-			game.decreaseSleepiness()
-			
-	});
-		}
+	 	if(this.currentPet.hunger > 7) {
+			$('#displayed-pic').attr('src',"https://i.imgur.com/UzTCR6P.png")	}
+
+		if(this.currentPet.sleepiness > 7) {
+			$('#displayed-pic').attr('src', "https://i.imgur.com/rkDxfGG.png")	}
+
 	}
-
 }
+
 
 //---------------LISTENERS
 
