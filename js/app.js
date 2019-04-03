@@ -98,15 +98,17 @@ const game = {
 
 		}
 	},
+
+	lightsOut(){
+		if(this.lights = true){
+			$('#sleep-btn').on('click', () => {
+			game.decreaseSleepiness()
+			
+	});
+		}
+	}
+
 }
-
-
-
-	// lightsOut(){
-	
-	// 	console.log(this.lightsOut);
-	// 	}
-	
 
 //---------------LISTENERS
 
@@ -125,13 +127,16 @@ $('#feed-btn').on('click', () => {
 	game.decreaseHunger()
 });
 	
-
 $('#sleep-btn').on('click', () => {
-	if(game.lights = true)
+	if(game.lights === true) {
 	game.decreaseSleepiness()
-			
-	});
-$('#lights-out').on('click', game.lights = true)
+}});
+
+  
+$('#light-btn').on('click', () => {
+	game.lights = true;
+	console.log(game.lights);
+});
 
 
 
