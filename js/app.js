@@ -1,11 +1,11 @@
 //-----------------CLASSES
+
 class Tamagotchi{
 	constructor() {
 		this.boredom = 0;
 		this.hunger = 0;
 		this.sleepiness = 0;
-		this.age = 0;
-		this.alive = null;
+		this.age = 0;;
 	}
 };
 
@@ -29,12 +29,16 @@ const game = {
 				$('#sleepiness').text('Sleepiness: ' + game.currentPet.sleepiness)
 				game.increaseAge()
 				$('#age').text('Age: ' + game.currentPet.age)
+
+				$('#timer').text('Timer: ' + game.timer)
+				game.gameOver()
 				game.timer++
 			}, 1000)
 		}
+
 	},
 	increaseBoredom() {
-		if((this.timer > 0) && (this.timer % 5 === 0)){
+		if((this.timer > 0) && (this.timer % 5 === 0) && (this.currentPet.boredom < 10)){
 			this.currentPet.boredom +=7;
 		}
 	},
@@ -43,7 +47,7 @@ const game = {
 	},
 
 	increaseHunger(){
-		if((this.timer > 0) && (this.timer % 7 === 0)){
+		if((this.timer > 0) && (this.timer % 7 === 0) && (this.currentPet.hunger < 10)){
 			this.currentPet.hunger += 5;
 		}
 	},
@@ -51,7 +55,7 @@ const game = {
 		this.currentPet.hunger -=2;
 	},
 	increaseSleepiness(){
-		if((this.timer > 0) && (this.timer % 8 === 0)){
+		if((this.timer > 0) && (this.timer % 8 === 0) && (this.currentPet.sleepiness < 10)){
 			this.currentPet.sleepiness += 8;
 		}
 	},
@@ -62,8 +66,15 @@ const game = {
 		if((this.timer > 0) && (this.timer % 15 === 0)){
 			this.currentPet.age += 1;
 		}
+	},
+	gameOver(){
+		if(this.currentPet.boredom >= 10 || 
+			this.currentPet.hunger >= 10 || 
+			this.currentPet.sleepiness >= 10 ||
+			this.currentPet.age > 10){
+			this.clearInterval("#timer")
+		}
 	}
-
 }
 
 //---------------LISTENERS
