@@ -72,7 +72,7 @@ const game = {
 			this.currentPet.hunger >= 10 || 
 			this.currentPet.sleepiness >= 10 ||
 			this.currentPet.age > 10){
-			this.clearInterval("#timer")
+			this.currentPet = null;
 		}
 	}
 }
@@ -84,7 +84,6 @@ $('#begin-btn').on('click', () => {
 	$('h2').text(`${tamaName} is ALIVE! Keep it that way!!`); 
 	game.startTimer()
 });
-
 
 $('#play-btn').on('click', () => {
 	game.decreaseBoredom()
