@@ -5,7 +5,7 @@ class Tamagotchi{
 		this.boredom = 0;
 		this.hunger = 0;
 		this.sleepiness = 0;
-		this.age = 0;;
+		this.age = 0;
 	}
 };
 
@@ -21,24 +21,30 @@ const game = {
 			this.currentPet = pet1 
 			setInterval(function() {
 				game.gameOn = true
+
 				game.increaseBoredom()
 				$('#boredom').text('Boredom: ' + game.currentPet.boredom)
+
 				game.increaseHunger()
 				$('#hunger').text('Hunger: ' + game.currentPet.hunger)
+
 				game.increaseSleepiness()
 				$('#sleepiness').text('Sleepiness: ' + game.currentPet.sleepiness)
+
 				game.increaseAge()
 				$('#age').text('Age: ' + game.currentPet.age)
 
 				$('#timer').text('Timer: ' + game.timer)
+
 				game.gameOver()
+
 				game.timer++
 			}, 1000)
 		}
 
 	},
 	increaseBoredom() {
-		if((this.timer > 0) && (this.timer % 5 === 0) && (this.currentPet.boredom < 10)){
+		if((this.timer % 5 === 0) && (this.currentPet.boredom < 10)){
 			this.currentPet.boredom +=7;
 		}
 	},

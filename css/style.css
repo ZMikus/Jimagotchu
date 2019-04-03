@@ -1,3 +1,9 @@
 body {
-	
+	background-image: url(https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiPkciZ4LLhAhXuhOAKHXlpAwYQjRx6BAgBEAU&url=https%3A%2F%2Fimgur.com%2Fgallery%2FgHpCw&psig=AOvVaw3tbXFIE35qFtwoKpgvS3pH&ust=1554340608025771);
+	text-align: center;
 }
+
+h3 {
+	text-align: flex;
+}
+
