@@ -1,4 +1,4 @@
-//-----------------CLASSES
+//---------------------------CLASSES
 
 class Tamagotchi{
 	constructor() {
@@ -9,7 +9,7 @@ class Tamagotchi{
 	}
 };
 
-//--------------------GAME
+//-----------------------------GAME
 
 const game = {
 	timer: 0,
@@ -100,7 +100,7 @@ const game = {
 	youWin(){
 		if(this.currentPet.age > 12) {
 			this.currentPet = null
-			$('h1').text("YOU PASSED!!").css("color", "green");
+			$('h1').text("YO! YOU PASSED!!").css("color", "green");
 			$('#displayed-pic').attr('src',"https://i.imgur.com/NJkRCvQ.png")
 		}
 	},
@@ -108,7 +108,7 @@ const game = {
 		if(this.currentPet.boredom >= 7){
 			$('#displayed-pic').attr('src',"https://i.imgur.com/DoVJpdX.png")	}
 
-	 	if(this.currentPet.hunger > 7) {
+	 	if(this.currentPet.hunger >= 5) {
 			$('#displayed-pic').attr('src',"https://i.imgur.com/UzTCR6P.png")	}
 
 		if(this.currentPet.sleepiness > 7) {
@@ -117,13 +117,14 @@ const game = {
 	}
 }
 
-
-//---------------LISTENERS
+//--------------------------LISTENERS
 
 $('#begin-btn').on('click', () => {
-	const tamaName = $('#input-box').val();
-	$('h1').text(`Keep Up Wit ${tamaName}!!`); 
-	game.startTimer()
+	const tamaName = $('#input-box').val()
+	if(tamaName === "Jim"){
+		$('h1').text(`Keep Up Wit ${tamaName}!!`); 
+		game.startTimer()
+	}
 });
 
 
