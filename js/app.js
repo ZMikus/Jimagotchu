@@ -51,22 +51,24 @@ const game = {
 	},
 	increaseBoredom() {
 		if((this.timer % 5 === 0) && (this.currentPet.boredom < 10)){
-			this.currentPet.boredom +=7;
+			this.currentPet.boredom +=5;
 		}
+		
 	},
 	decreaseBoredom(){
-		if(this.currentPet.boredom >= 0){
+		if(this.currentPet.boredom >= 2){
 			this.currentPet.boredom -=2;
+
 		}
 	},
 
 	increaseHunger(){
 		if((this.timer > 0) && (this.timer % 7 === 0) && (this.currentPet.hunger < 10)){
-			this.currentPet.hunger += 5;
+			this.currentPet.hunger += 7;
 		}
 	},
 	decreaseHunger(){
-		if(this.currentPet.hunger >= 0) {
+		if(this.currentPet.hunger >= 2) {
 			this.currentPet.hunger -=2;
 		}
 	},
@@ -76,7 +78,7 @@ const game = {
 		}
 	},
 	decreaseSleepiness(){
-		if(this.currentPet.sleepiness >= 0)
+		if(this.currentPet.sleepiness >= 3)
 			this.currentPet.sleepiness -=3;
 		},
 	increaseAge(){
@@ -92,7 +94,8 @@ const game = {
 			//this.currentPet.age > 11){
 			this.currentPet = null
 			$('h1').text("You Didn't Keep Up..You Fail..").css("color", "red");
-			$('#displayed-pic').attr('src',"https://i.imgur.com/viuje49.png")
+			$('#displayed-pic').attr('src',"https://i.imgur.com/viuje49.png");
+			$('#instructions').text("you should know the shortcut from here..").css("color", "salmon")
 		}
 
 	},
@@ -100,15 +103,15 @@ const game = {
 	youWin(){
 		if(this.currentPet.age > 12) {
 			this.currentPet = null
-			$('h1').text("YO! YOU PASSED!!").css("color", "green");
+			$('h1').text("YO! YOU PASSED!!").css("color", "salmon");
 			$('#displayed-pic').attr('src',"https://i.imgur.com/NJkRCvQ.png")
 		}
 	},
 	displayPics(){
-		if(this.currentPet.boredom >= 7){
+		if(this.currentPet.boredom >= 5){
 			$('#displayed-pic').attr('src',"https://i.imgur.com/DoVJpdX.png")	}
 
-	 	if(this.currentPet.hunger >= 5) {
+	 	if(this.currentPet.hunger >= 6) {
 			$('#displayed-pic').attr('src',"https://i.imgur.com/UzTCR6P.png")	}
 
 		if(this.currentPet.sleepiness > 7) {
@@ -127,7 +130,6 @@ $('#begin-btn').on('click', () => {
 	}
 });
 
-
 $('#play-btn').on('click', () => {
 	game.decreaseBoredom()
 });
@@ -141,7 +143,6 @@ $('#sleep-btn').on('click', () => {
 	game.decreaseSleepiness()
 }});
 
-  
 $('#light-btn').on('click', () => {
 	game.lights = true;
 	console.log(game.lights);
